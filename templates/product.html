@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block metadescription %}
+{{ product.description | truncatewords:160 }}
+{% endblock %}
+{% block title %}
+{{product.name}} - E-Store
+{% endblock %}
+{% block body %}
+<div class="row my-product-row-class">
+    <div class="mx-auto">
+        <p><a href="{% url 'ecom_app:allProductCategory' %}">Home</a> | <a href="{{product.category.get_url}}">{{product.category}}</a> | {{product.name}}</p>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-6">
+            <div><img src="{{product.image.url}}" alt="{{product.name}}" class="my-card-image"></div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6">
+            <div>
+                <h1 class="my-product-title"><b>{{product.name}}</b></h1>
+                <p>₹ {{product.price}}</p>
+                <p class="my-title">Product Description</p>
+                <p class="text-justify my-product-text">{{product.description}}</p>
+                {% if product.stock <= 0 %}
+                <p class="text-justify my-product-text"><b>Out of stock</b></p>
+                {% else %}
+                <a class="btn btn-warning" href="{% url 'cart:add_cart' product.id %}">Add to Cart</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
