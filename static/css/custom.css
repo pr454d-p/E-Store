@@ -11,6 +11,7 @@ body{
 }
 
 .my_footer{
+    bottom: 0;
     background-color: #f8f9fa;
     height: 60px;
 }

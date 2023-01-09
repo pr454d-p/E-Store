@@ -14,14 +14,11 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid d-flex flex-column min-vh-100">
         <!-- {% include 'header.html' %} -->
         {% include 'navbar.html' %}
         {% block body %}
         {% endblock %}
-        <div class="space">
-        
-        </div>
         {% include 'footer.html' %}
     </div>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
