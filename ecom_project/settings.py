@@ -27,7 +27,13 @@ SECRET_KEY = 'django-insecure-3fd2b69xge-@@&7(n1mmv^3+6fht@f_wr2+v8f2agrwi&spb%3
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+CSRF_TRUSTED_ORIGINS = [
+'https://estore.up.railway.app'
+]
+CORS_ORIGIN_WHITELIST = [
+'https://estore.up.railway.app',
+]
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
